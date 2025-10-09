@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasikara Sôma Vidéo Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --color-deep-space: #0a0a23;
+            --color-space-cadet: #1d1e40;
+            --color-neon-cyan: #00f0ff;
+            --color-mint: #7fffd4;
+            --color-ice: #e0f7fa;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-shadow: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--color-deep-space);
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        /* Header moderne avec effet glass */
+        header {
+            background: linear-gradient(rgba(10, 10, 35, 0.9), rgba(10, 10, 35, 0.7)), url('Lt.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 10px;
+            padding: 60px 40px;
+            text-align: left;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .header-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--color-ice), var(--color-neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+        }
+
+        .slogan {
+            font-size: 1.6em;
+            margin-bottom: 40px;
+            color: var(--color-mint);
+            font-weight: 300;
+        }
+
+        /* Navigation glass moderne */
+        nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            margin: 20px 10px;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px var(--glass-shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-icons a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 15px 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            min-width: 80px;
+        }
+
+        .nav-icons a:hover {
+            background: rgba(0, 240, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
+            border-color: var(--color-neon-cyan);
+        }
+
+        .nav-icons i {
+            font-size: 1.6em;
+            color: var(--color-neon-cyan);
+        }
+
+        .nav-icons span {
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        /* Barre de recherche moderne */
+        .search-container {
+            display: flex;
+            gap: 15px;
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .search-bar {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            border: 2px solid var(--color-neon-cyan);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1.1em;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .search-bar i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-neon-cyan);
+            font-size: 1.2em;
+        }
+
+        /* Sections principales avec effet glass */
+        .section {
+            margin: 60px 10px;
+            padding: 40px 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px var(--glass-shadow);
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .section-header h2 {
+            font-size: 2.8em;
+            background: linear-gradient(135deg, var(--color-mint), var(--color-neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-header .subtitle {
+            color: var(--color-ice);
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* Carrousels améliorés */
+        .carousel-container {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .carousel{
+            /* Ajoute cette ligne */ 
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            scroll-behavior: smooth;
+            padding: 25px 15px;
+            /*scrollbar-width: thin;*/
+            scrollbar-color: var(--color-neon-cyan) transparent;
+        }
+
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 10px;
+        }
+
+        .carousel::-webkit-scrollbar-thumb {
+            background: var(--color-neon-cyan);
+            border-radius: 10px;
+        }
+
+        /* Cartes de jeu ultra-modernes */
+        .game-card {
+            min-width: 320px;
+            height: 420px;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px var(--glass-shadow);
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .game-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.3);
+            border-color: var(--color-neon-cyan);
+        }
+
+        .game-card:hover::before {
+            opacity: 1;
+        }
+
+        .game-image {
+            width: 100%;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .game-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(transparent, var(--color-deep-space));
+        }
+
+        .game-content {
+            padding: 25px;
+            height: calc(100% - 220px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .game-info h3 {
+            color: var(--color-mint);
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .game-info p {
+            color: var(--color-ice);
+            font-size: 1em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--color-neon-cyan), var(--color-mint));
+            color: var(--color-deep-space);
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: block;
+            width: 100%;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.4);
+        }
+
+        /* Section Club premium */
+        .club-section {
+            background: linear-gradient(135deg, var(--color-space-cadet), #002244);
+            border-radius: 25px;
+            padding: 70px 50px;
+            margin: 80px 10px;
+            border: 1px solid var(--color-neon-cyan);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .club-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .club-content h2 {
+            font-size: 3.2em;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .club-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefit-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 35px 25px;
+            border-radius: 18px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-neon-cyan);
+            box-shadow: 0 15px 35px rgba(0, 240, 255, 0.2);
+        }
+
+        .benefit-card i {
+            font-size: 3em;
+            color: var(--color-neon-cyan);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h4 {
+            color: var(--color-ice);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .club-cta {
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .club-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-neon-cyan), var(--color-mint));
+            color: var(--color-deep-space);
+            padding: 20px 50px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .club-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 240, 255, 0.4);
+        }
+
+        /* Services premium */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-neon-cyan);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.25);
+        }
+
+        .service-card i {
+            font-size: 3.5em;
+            color: var(--color-neon-cyan);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            color: var(--color-mint);
+            font-size: 1.7em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Footer ultra-moderne */
+        footer {
+            background: linear-gradient(135deg, #001122, #000d1a);
+            padding: 70px 20px 40px;
+            text-align: center;
+            margin-top: 100px;
+            border-top: 2px solid var(--color-neon-cyan);
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--color-neon-cyan);
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--color-ice);
+            margin-bottom: 12px;
+            display: block;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-mint);
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--color-neon-cyan);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--color-ice);
+            font-size: 0.95em;
+            opacity: 0.8;
+        }
+
+        /* ===== STYLES POUR TABLETTES (écrans de 768px et moins) ===== */
+        @media (max-width: 768px) {
+            header {
+                min-height: 60vh;
+                padding: 40px 20px;
+                margin: 5px;
+            }
+            
+            header h1 {
+                font-size: 2.5em;
+            }
+            
+            .slogan {
+                font-size: 1.2em;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .search-container {
+                max-width: 100%;
+                order: 2;
+            }
+            
+            .nav-icons {
+                justify-content: center;
+                flex-wrap: wrap;
+                order: 1;
+            }
+            
+            .game-card {
+                min-width: 280px;
+                height: 380px;
+            }
+            
+            .club-section {
+                padding: 40px 25px;
+                margin: 40px 5px;
+            }
+            
+            .club-content h2 {
+                font-size: 2.5em;
+            }
+            
+            .section {
+                margin: 40px 5px;
+                padding: 30px 20px;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2em;
+            }
+        }
+
+        /* ===== STYLES POUR TÉLÉPHONES (écrans de 480px et moins) ===== */
+        @media (max-width: 480px) {
+            header {
+                min-height: 50vh;
+                padding: 30px 15px;
+                text-align: center;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .slogan {
+                font-size: 1em;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8em;
+            }
+            
+            .game-card {
+                min-width: 250px;
+                height: 350px;
+            }
+            
+            .benefit-card, .service-card {
+                padding: 25px 20px;
+            }
+            
+            .nav-icons a {
+                padding: 12px 15px;
+                min-width: 70px;
+            }
+            
+            .nav-icons i {
+                font-size: 1.4em;
+            }
+        }
+
+        /* Animations globales */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Effets de particules pour le header */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--color-neon-cyan);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Hero avec effet glass -->
+    <header>
+        <div class="particles" id="particles"></div>
+        <div class="header-content floating">
+            <h1>
+                GASIKARA SÔMA<br>
+                VIDÉO GAME
+            </h1>
+            <div class="slogan">L'ÉLITE DU JEU GRATUIT • TÉLÉCHARGEZ • OPTIMISEZ • DOMINEZ</div>
+        </div>
+    </header>
+
+    <!-- Navigation glass moderne -->
+    <nav>
+        <div class="nav-container">
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher un jeu, une plateforme...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="nav-icons">
+                <a href="#">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span>Profil</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-rocket"></i>
+                    <span>Premium</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Jeux</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-users"></i>
+                    <span>Club</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Jeux PC Élite -->
+    <section class="section">
+        <div class="section-header">
+            <h2>JEUX PC ÉLITE</h2>
+            <p class="subtitle">Des perles rares, optimisées pour une performance maximale</p>
+        </div>
+        
+        <div class="carousel-container">
+            <div class="carousel" id="carousel-haut">
+                <!-- Jeu 1 -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('La.jpg')"></div>
+                    <div class="game-content">
+                        <div class="game-info">
+                            <h3>FORNITE ULTIMATE</h3>
+                            <p>Battle Royale next-gen • PS5/PC/Cloud • Gratuit</p>
+                        </div>
+                        <a href="https://www.epicgames.com/fortnite/fr/home" target="_blank">
+                            <button class="download-btn">Télécharger sur Epic Games</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Jeu 2 -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('Lb.jpg')"></div>
+                    <div class="game-content">
+                        <div class="game-info">
+                            <h3>ROCKET LEAGUE</h3>
+                            <p>Football véhiculaire • Cross-platform • Officiel</p>
+                        </div>
+                        <a href="https://www.epicgames.com/rocketleague/fr/home" target="_blank">
+                            <button class="download-btn">Télécharger maintenant</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Jeu 3 -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('Lc.jpg')"></div>
+                    <div class="game-content">
+                        <div class="game-info">
+                            <h3>AMONG US</h3>
+                            <p>Stratégie sociale • Multijoueur • Gratuit</p>
+                        </div>
+                        <a href="https://www.innersloth.com/gameAmongUs.php" target="_blank">
+                            <button class="download-btn">Rejoindre l'aventure</button>
+                        </a>
+                    </div>
+                </div>
+                <!-- Tu peux copier-coller les blocs de jeu ci-dessus pour en ajouter jusqu'à 10 ici -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Mobile Gaming -->
+    <section class="section">
+        <div class="section-header">
+            <h2>GAMING MOBILE</h2>
+            <p class="subtitle">L'excellence dans votre poche • Optimisé Android</p>
+        </div>
+        
+        <div class="carousel-container">
+            <div class="carousel" id="carousel-bas">
+                <!-- Jeu Mobile 1 -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('Lf.jpg')"></div>
+                    <div class="game-content">
+                        <div class="game-info">
+                            <h3>FORNITE MOBILE</h3>
+                            <p>Battle Royale • Cloud Gaming • Android</p>
+                        </div>
+                        <a href="https://www.epicgames.com/fortnite/fr/home" target="_blank">
+                            <button class="download-btn">Télécharger</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Jeu Mobile 2 -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('Ld.jpg')"></div>
+                    <div class="game-content">
+                        <div class="game-info">
+                            <h3>ROCKET LEAGUE SIDESWIPE</h3>
+                            <p>Action mobile • Touch optimized • Gratuit</p>
+                        </div>
+                        <a href="https://www.epicgames.com/rocketleague/fr/home" target="_blank">
+                            <button class="download-btn">Télécharger</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Jeu Mobile 3 -->
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('Le.jpg')"></div>
+                    <div class="game-content">
+                        <div class="game-info">
+                            <h3>AMONG US</h3>
+                            <p>Stratégie portable • Touchscreen • Android/iOS</p>
+                        </div>
+                        <a href="https://www.innersloth.com/gameAmongUs.php" target="_blank">
+                            <button class="download-btn">Télécharger</button>
+                        </a>
+                    </div>
+                </div>
+                <!-- Tu peux copier-coller les blocs de jeu ci-dessus pour en ajouter jusqu'à 10 ici -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bouton pour charger plus de jeux (AJAX) -->
+    <div style="text-align: center; margin: 40px 10px;">
+        <button id="bouton-chargement" class="download-btn" style="width: auto; padding: 15px 40px; font-size: 1.2em;">
+            <i class="fas fa-plus-circle"></i> Charger plus de jeux
+        </button>
+    </div>
+
+    <!-- Section Club Élite -->
+    <section class="club-section">
+        <div class="club-content">
+            <h2 style="background: linear-gradient(135deg, var(--color-mint), var(--color-neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                CLUB GASIKARA ÉLITE
+            </h2>
+            <p style="font-size: 1.4em; margin-bottom: 40px; color: var(--color-ice); font-weight: 300;">
+                Rejoignez l'élite des gamers • Accès exclusif • Avantages premium
+            </p>
+            
+            <div class="club-benefits">
+                <div class="benefit-card">
+                    <i class="fas fa-crown"></i>
+                    <h4>STATUT VIP</h4>
+                    <p>Accès prioritaire aux nouveaux jeux et contenu exclusif</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>PROTECTION ÉLITE</h4>
+                    <p>Sécurité renforcée et support technique 24h/24</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>PERFORMANCE MAX</h4>
+                    <p>Configurations optimisées et guides experts</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <i class="fas fa-gem"></i>
+                    <h4>CONTENU RARE</h4>
+                    <p>Accès à des jeux indés et contenus collectors</p>
+                </div>
+            </div>
+            
+            <div class="club-cta">
+                <a href="#" class="club-btn">Devenir Membre Élite</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Premium -->
+    <section class="section">
+        <div class="section-header">
+            <h2>SERVICES PREMIUM</h2>
+            <p class="subtitle">Des solutions sur-mesure pour gamers exigeants</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-tachometer-alt"></i>
+                <h3>OPTIMISATION EXTREME</h3>
+                <p>Boost de performance sur mesure pour PC et mobile, configurations expertes</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-user-graduate"></i>
+                <h3>COACHING ELITE</h3>
+                <p>Formation personnalisée par des pros, analyse de gameplay détaillée</p>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-tools"></i>
+                <h3>SUPPORT TECHNIQUE</h3>
+                <p>Résolution de problèmes 24h/24, installation et dépannage à distance</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Élite -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CONTACT ÉLITE</h3>
+                <p>contact@gasikara-soma.mg</p>
+                <p style="margin-top: 20px;">
+                    <i class="fab fa-whatsapp" style="color:#57D62D"></i> VIP Support: +261034000000
+                </p>
+                <p>
+                    <i class="fab fa-discord" style="color:#5865F2"></i> Discord Élite
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>ACCÈS RAPIDE</h3>
+                <a href="#">Accueil Élite</a>
+                <a href="#">Jeux PC</a>
+                <a href="#">Gaming Mobile</a>
+                <a href="#">Club VIP</a>
+                <a href="#">Support 24/7</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>RESSOURCES</h3>
+                <a href="#">Guides d'optimisation</a>
+                <a href="#">Configurations recommandées</a>
+                <a href="#">Tutoriels vidéo</a>
+                <a href="#">FAQ Premium</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>RÉSEAUX ÉLITE</h3>
+                <div class="social-links">
+                    <a href="#">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord</span>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            GASIKARA SÔMA VIDÉO GAME © 2024 • L'ÉLITE DU GAMING GRATUIT • TOUS DROITS RÉSERVÉS
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Effets de particules pour le header
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const size = Math.random() * 4 + 1;
+                const delay = Math.random() * 5;
+                
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Défilement automatique fluide des carrousels
+        function configurerCarrousel(carousel) {
+            let scrollAmount = 0;
+            const vitesseScroll = 1;
+            let largeurCarrousel = carousel.scrollWidth - carousel.clientWidth;
+            let defilementActif = true;
+
+            window.addEventListener('resize', () => {
+                largeurCarrousel = carousel.scrollWidth - carousel.clientWidth;
+            });
+
+            carousel.addEventListener('mouseenter', () => defilementActif = false);
+            carousel.addEventListener('mouseleave', () => defilementActif = true);
+
+            function defiler() {
+                if (!defilementActif) {
+                    requestAnimationFrame(defiler);
+                    return;
+                }
+
+                if (scrollAmount >= largeurCarrousel) {
+                    scrollAmount = 0;
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollAmount += vitesseScroll;
+                    carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                }
+                requestAnimationFrame(defiler);
+            }
+            defiler();
+        }
+
+        // Effet de typing pour le slogan
+        function typeWriter() {
+            const slogan = document.querySelector('.slogan');
+            if (slogan) {
+                const originalText = slogan.textContent;
+                slogan.textContent = '';
+                let i = 0;
+                
+                function type() {
+                    if (i < originalText.length) {
+                        slogan.textContent += originalText.charAt(i);
+                        i++;
+                        setTimeout(type, 50);
+                    }
+                }
+                setTimeout(type, 1000);
+            }
+        }
+
+        // Chargement AJAX des nouveaux jeux
+        $(document).ready(function() {
+            $("#bouton-chargement").click(function(){
+                $("#carousel-haut").load("nouveaux-jeux.html");
+                $("#carousel-bas").load("nouveaux-jeux.html");
+                return false;
+            });
+        });
+
+        // Initialisation au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            document.querySelectorAll('.carousel').forEach(configurerCarrousel);
+            typeWriter();
+        });
+    </script>
+</body>
+  </html>
